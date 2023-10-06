@@ -134,8 +134,8 @@ Widget::Widget(QWidget *parent) : QWidget(parent)
     buttonBox->button(QDialogButtonBox::Apply)->setText("应用");
     buttonBox->button(QDialogButtonBox::Close)->setText("关闭");
 
-    QObject::connect(buttonBox, &QDialogButtonBox::accepted, this,
-                     &Widget::onAccept);
+    QObject::connect(buttonBox->button(QDialogButtonBox::Apply),
+                     &QPushButton::clicked, this, &Widget::onAccept);
     QObject::connect(buttonBox, &QDialogButtonBox::rejected, this,
                      &Widget::close);
     vboxLayout->addWidget(buttonBox);
